@@ -20,6 +20,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--epochs", type=int, default=2)
 parser.add_argument("--train-limit", type=int, default=128)
 parser.add_argument("--val-limit", type=int, default=64)
+parser.add_argument("--train-indices-file", type=str, default="train_indices.npy")
+parser.add_argument("--val-indices-file", type=str, default="val_indices.npy")
 parser.add_argument("--batch-size", type=int, default=16)
 parser.add_argument("--checkpoint-dir", type=str, required=True)
 parser.add_argument("--resume", action="store_true")
@@ -46,9 +48,8 @@ print("Device:", DEVICE)
 print("Epochs:", args.epochs)
 print("Checkpoint directory:", checkpoint_dir)
 
-
-train_indices = np.load(ARTIFACTS / "train_indices.npy")
-val_indices = np.load(ARTIFACTS / "val_indices.npy")
+train_indices = np.load(ARTIFACTS / args.train_indices_file)
+val_indices = np.load(ARTIFACTS / args.val_indices_file)
 
 if args.train_limit > 0:
     train_indices = train_indices[:args.train_limit]
