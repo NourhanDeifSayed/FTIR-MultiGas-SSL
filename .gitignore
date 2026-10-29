@@ -1,0 +1,34 @@
+
+# Virtual environment
+.venv/
+venv/
+
+# Large FTIR datasets
+data/
+*.h5
+*.hdf5
+
+# Generated artifacts, outputs and checkpoints
+artifacts/
+outputs/
+checkpoints/
+*.npy
+*.npz
+*.pt
+*.pth
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.key
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code local settings
+.vscode/
+# Dataset metadata — keep private
+components.json
+manifest.json
